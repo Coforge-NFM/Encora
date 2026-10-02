@@ -14,4 +14,4 @@ SUMMARIZE(
     "ExtRetailNet",SUM(vSalesLineItem[ExtRetailNet]),
     "Qty",SUM(vSalesLineItem[Qty]),
     "Margin",SUM(vSalesLineItem[Margin]),
-    "Count",DISTINCTCOUNT(vSalesLineItem[Product Sku]))
+    "Count",DISTINCTCOUNT(vSalesLineItem[Product Sku])
