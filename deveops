@@ -1,0 +1,64 @@
+_Past Month =
+
+VAR SelectedYear =
+
+    SELECTEDVALUE('CompareTo New'[Year])
+ 
+VAR CurrentMonth =
+
+    MONTH(TODAY())
+ 
+VAR Yesterday =
+
+    DAY(TODAY()) - 1
+ 
+RETURN
+
+CALCULATE(
+
+    SUM(Query1[Written_Retail$]),
+
+    FILTER(
+
+        ALL(Query1[Order Date]),
+
+        YEAR(Query1[Order Date]) = SelectedYear
+&& MONTH(Query1[Order Date]) = CurrentMonth
+&& DAY(Query1[Order Date]) <= Yesterday
+
+    )
+
+)
+ 
+_Current Month =
+
+VAR CurrentYear =
+
+    YEAR(TODAY())
+ 
+VAR CurrentMonth =
+
+    MONTH(TODAY())
+ 
+VAR Yesterday =
+
+    DAY(TODAY()) - 1
+ 
+RETURN
+
+CALCULATE(
+
+    SUM(Query1[Written_Retail$]),
+
+    FILTER(
+
+        ALL(Query1[Order Date]),
+
+        YEAR(Query1[Order Date]) = CurrentYear
+&& MONTH(Query1[Order Date]) = CurrentMonth
+&& DAY(Query1[Order Date]) <= Yesterday
+
+    )
+
+)
+ 
